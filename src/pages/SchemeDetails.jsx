@@ -152,22 +152,24 @@ const SchemeDetails = () => {
 
       {/* Video Section */}
       {scheme.youtubeLink && (
-        <div className="mt-12">
-          <h2 className="text-2xl font-semibold text-gray-600 mb-4 flex items-center">
-            More about {scheme.name} ...
-          </h2>
-          {/* Video Embedding */}
-          <iframe
-            width="560"
-            height="315"
-            src={scheme.youtubeLink}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      )}
+  <div className="mt-12">
+    <h2 className="text-2xl font-semibold text-gray-600 mb-4 flex items-center">
+      More about {scheme.name} ...
+    </h2>
+    {/* Responsive Video Embedding */}
+    <div className="relative overflow-hidden" style={{ paddingTop: "56.25%" }}> {/* 16:9 Aspect Ratio */}
+      <iframe
+        className="absolute top-0 left-0 w-full h-full"
+        src={scheme.youtubeLink}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </div>
+  </div>
+)}
+
 
       {/* Modal for Eligibility Check */}
       {showModal && (
